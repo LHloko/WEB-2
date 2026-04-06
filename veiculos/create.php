@@ -7,6 +7,8 @@
 </head>
 <body>
     <form action="store.php" method="POST">
+        <input type="hidden" name="vaga" value="<?= $_GET['vaga'] ?? '' ?>">
+
         <label>Placa:</label><br>
         <input type="text" name="placa" required><br><br>
 
@@ -16,7 +18,7 @@
         <button type="submit">Cadastrar Veiculo</button>
     </form>    
 
-    <a href="index.php">Voltar</a>
+    <a href="../index.php">Voltar</a>
 
 </body>
 </html>

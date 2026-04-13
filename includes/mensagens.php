@@ -1,13 +1,12 @@
 <?php
 
-
 if (isset($_SESSION['erro'])) {
-    echo "<p style='color:red'>{$_SESSION['erro']}</p>";
+    echo "<div class='mensagem erro'>{$_SESSION['erro']}</div>";
     unset($_SESSION['erro']);
 }
 
 if (isset($_SESSION['sucesso'])) {
-    echo "<p style='color:green'>{$_SESSION['sucesso']}</p>";
+    echo "<div class='mensagem sucesso'>{$_SESSION['sucesso']}</div>";
     unset($_SESSION['sucesso']);
 }
 

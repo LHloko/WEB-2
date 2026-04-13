@@ -1,12 +1,33 @@
-<?php 
+<?php
 $vaga = $_GET['vaga'];
 ?>
 
-<h2>Escolha uma opção</h2><br>
-<a href="buscar.php?vaga=<?= $vaga ?>">
-    <button>Estacionar veículo já cadastrado</button>
-</a>
-<br><br>
-<a href="../veiculos/create.php?vaga=<?= $vaga ?>">
-    <button>Cadastrar novo veículo</button>
-</a>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Escolher Ação</title>
+    <link rel="stylesheet" href="../assets/style.css?v=3">
+</head>
+<body>
+
+<div class="central-box">
+
+    <h2>Vaga <?= $vaga ?></h2>
+
+    <a href="buscar.php?vaga=<?= $vaga ?>">
+        <button class="btn btn-primary btn-large">
+            Veículo já cadastrado
+        </button>
+    </a>
+
+    <a href="../veiculos/create.php?vaga=<?= $vaga ?>">
+        <button class="btn btn-success btn-large">
+            Cadastrar novo veículo
+        </button>
+    </a>
+
+</div>
+
+</body>
+</html>

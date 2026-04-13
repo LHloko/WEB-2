@@ -10,20 +10,30 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute([$id]);
 
 $veiculo = $stmt->fetch();
-var_dump($veiculo);
 
 ?>
-
-<form action="update.php" method="POST">
-    <input type="hidden" name="id" value="<?= $veiculo['id'] ?>">
-
-    <label>Placa: </label><br>
-    <input type="text" name="placa" value="<?= $veiculo['placa'] ?>"><br><br>
-
-    <label>Modelo: </label><br>
-    <input type="text" name="modelo" value="<?= $veiculo['modelo'] ?>"><br><br>
-
-    <button type="submit">Atualizar</button>
-
-</form>
+<head>
+    <link rel="stylesheet" href="../assets/style.css?v=3">
+    <script src="../assets/script.js?v=1"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Editar Veículo</h2>
+        
+        <form action="update.php" method="POST">
+            <input type="hidden" name="id" value="<?= $veiculo['id'] ?>">
+            
+            <label>Placa:</label>
+            <input type="text" name="placa" value="<?= $veiculo['placa'] ?>">
+            
+            <label>Modelo:</label>
+            <input type="text" name="modelo" value="<?= $veiculo['modelo'] ?>">
+            
+            <button class="btn btn-warning">Atualizar</button>
+        </form>
+        
+    </div>
+    
+</body>
 

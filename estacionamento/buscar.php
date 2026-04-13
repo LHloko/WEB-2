@@ -1,17 +1,10 @@
-<!--
-Requisito a placa 
-faço uma busca pela placa no banco de dados 
-    se sim
-        placa encontrada, ocupo a vaga e volto para o index
-    senao
-        aviso que a placa nao esta no sistema e vou para o cadastro de veiculo
--->
-<?php 
+<?php
 require '../config/conexao.php';
+
 $vaga = $_GET['vaga'];
 
-// Autorequest
-if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $placa = $_POST['placa'];
 
     $sql = "SELECT * FROM veiculo WHERE placa = ?";
@@ -20,20 +13,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $veiculo = $stmt->fetch();
 
-    if($veiculo){
-        // O veiculo esta cadastrado
+    if ($veiculo) {
         header("Location: registrar.php?vaga=$vaga&veiculo=".$veiculo['id']);
+        exit;
     } else {
-        // Veiculo nao cadastrado, ir para cadastro 
         header("Location: ../veiculos/create.php?vaga=$vaga&placa=$placa");
         exit;
     }
 }
 ?>
 
-<h2>Digite a placa do veiculo</h2>
-<form method="POST">
-    <input type="text" name="placa" required><br><br>
-    <button type="submit">Buscar</button>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Veículo</title>
+    <link rel="stylesheet" href="../assets/style.css?v=3">
+</head>
+<body>
 
-</form>
+<div class="central-box">
+
+    <h2>Buscar Veículo</h2>
+
+    <form method="POST">
+
+        <input 
+            type="text" 
+            name="placa" 
+            placeholder="Digite a placa"
+            class="input-busca"
+            required
+        >
+
+        <button class="btn btn-primary btn-large">
+            Buscar
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

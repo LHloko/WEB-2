@@ -3,22 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/style.css?v=3">
+    <script src="../assets/script.js?v=1"></script>
     <title>Cadastrar Veículo</title>
 </head>
 <body>
+    <h2>Cadastrar Veículo</h2>
+
     <form action="store.php" method="POST">
-        <input type="hidden" name="vaga" value="<?= $_GET['vaga'] ?? '' ?>">
 
-        <label>Placa:</label><br>
-        <input type="text" name="placa" required><br><br>
+        <label>Placa:</label>
+        <input type="text" name="placa" required>
 
-        <label>Modelo:</label><br>
-        <input type="text" name="modelo" required><br><br>
+        <label>Modelo:</label>
+        <input type="text" name="modelo" required>
 
-        <button type="submit">Cadastrar Veiculo</button>
-    </form>    
+        <button class="btn btn-success">Cadastrar</button>
 
-    <a href="../index.php">Voltar</a>
+    </form>
+
+    <?php if(!isset($_GET['vaga'])):?>
+        <a href="index.php" class="btn-link">Voltar</a>
+    <?php else: ?>
+        <a href="../index.php" class="btn-link">Voltar</a>
+    <?php endif ?>
+
+
+    </div>
 
 </body>
 </html>

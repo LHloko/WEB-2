@@ -16,7 +16,7 @@ try{
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/style.css?v=3">
+    <link rel="stylesheet" href="../assets/style.css?v=4">
     <script src="../assets/script.js?v=1"></script>
     <title>Veiculos Estacionamento</title>
 </head>
@@ -26,7 +26,10 @@ try{
 
     <h2>Lista de Veículos</h2><br>
 
-    <a href="create.php" class="btn btn-primary">Novo Veículo</a>
+    <div>
+        <a href="create.php" class="btn btn-primary">Novo Veículo</a>
+        <a href="../index.php" class="btn btn-primary">Voltar</a>
+    </div>
 
     <table>
         <tr>

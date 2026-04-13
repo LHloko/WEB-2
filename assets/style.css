@@ -18,9 +18,9 @@ h1 {
 
 /* Container das vagas */
 .vagas-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
     gap: 20px;
-    flex-wrap: wrap;
 }
 
 /* Card da vaga */

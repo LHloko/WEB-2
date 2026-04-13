@@ -7,7 +7,7 @@ $vaga = $_GET['vaga'];
 <head>
     <meta charset="UTF-8">
     <title>Escolher Ação</title>
-    <link rel="stylesheet" href="../assets/style.css?v=3">
+    <link rel="stylesheet" href="../assets/style.css?v=4">
 </head>
 <body>
 

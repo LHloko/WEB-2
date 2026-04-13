@@ -13,7 +13,7 @@ $veiculo = $stmt->fetch();
 
 ?>
 <head>
-    <link rel="stylesheet" href="../assets/style.css?v=3">
+    <link rel="stylesheet" href="../assets/style.css?v=4">
     <script src="../assets/script.js?v=1"></script>
 </head>
 <body>

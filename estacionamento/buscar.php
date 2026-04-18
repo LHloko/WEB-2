@@ -1,4 +1,5 @@
 <?php
+session_start();
 require '../config/conexao.php';
 
 $vaga = $_GET['vaga'];
@@ -6,7 +7,22 @@ $vaga = $_GET['vaga'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $placa = $_POST['placa'];
+    
+    // Verificar se o carro já está estacionado //
+    $sql = "SELECT * 
+            FROM movimentacao m 
+            INNER JOIN veiculo v on m.id_veiculo = v.id
+            WHERE v.placa = ? AND m.data_saida IS NULL";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$placa]);
 
+    if($stmt->fetch()){
+        $_SESSION['erro'] = 'Veiculo já estacionado!';
+        header("Location: ../index.php");
+        exit;
+    }
+
+    // Registra a movimentação //
     $sql = "SELECT * FROM veiculo WHERE placa = ?";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$placa]);

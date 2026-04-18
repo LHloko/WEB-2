@@ -45,11 +45,12 @@ $vagas = $stmt->fetchAll();
     <!-- VAGAS OCUPADAS -->
     <?php 
         $ocupada = $vaga['mov_id'] !== null;
+        
         // Conversão de tempo
-        $min = (int)$ocupada['tempo_minutos'];
+        $min = (int)$vaga['tempo_minutos'];
         $horas = floor($min/60);
         $resto = $min%60;
-
+        
         // Precificação 
         $preco_da_hora = 10; 
         $valor_hora = $horas * $preco_da_hora;
@@ -70,8 +71,8 @@ $vagas = $stmt->fetchAll();
         <?php else: ?>
 
             <div>
-                <p><?= htmlspecialchars($ocupada['placa']) ?></p>
-                <p><?= htmlspecialchars($ocupada['modelo']) ?></p>
+                <p><?= htmlspecialchars($vaga['placa']) ?></p>
+                <p><?= htmlspecialchars($vaga['modelo']) ?></p>
                 <p>
                     <strong>Tempo: </strong>
                     <?= $horas ?>h
@@ -84,7 +85,7 @@ $vagas = $stmt->fetchAll();
             </div>
 
             <form action="estacionamento/retirar.php" method="POST">
-                <input type="hidden" name="movimentacao" value="<?= $ocupada['id'] ?>">
+                <input type="hidden" name="movimentacao" value="<?= $vaga['mov_id'] ?>">
                 <button class="btn-retirar">Retirar</button>
             </form>
 

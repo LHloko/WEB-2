@@ -11,21 +11,19 @@ if (!isset($_POST['movimentacao'])){
 }
 
 $id = (int)$_POST['movimentacao'];
-
-
-
+var_dump($id);
 
 try{
     // Buscar o tempo de estacionamento 
     $sql = "SELECT
-            data_entrada,
-            TIMESTAMPDIFF(MINUTE,data_entrada, NOW()) AS tempo_minutos
-        FROM movimentacao 
-        WHERE id = ? AND data_saida IS NULL";
+                data_entrada,
+                TIMESTAMPDIFF(MINUTE,data_entrada, NOW()) AS tempo_minutos
+            FROM movimentacao 
+            WHERE id = ? AND data_saida IS NULL";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$id]);
     $mov = $stmt->fetch();
-
+    
     if(!$mov){
         $_SESSION['erro'] = "Movimentação não encontrada!";
         header("Location: ../index.php");
@@ -63,8 +61,8 @@ try{
     $_SESSION['erro'] = 'Erro no sistema!';
 }
 
-header("Location: ../index.php");
-exit;
+//header("Location: ../index.php");
+//exit;
 
 
 ?>

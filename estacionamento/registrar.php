@@ -13,6 +13,7 @@ if (!isset($vaga, $id)){
 }
 
 try{
+    
     // Verificar se a vaga esta ocupada //
     $sql = "SELECT id FROM movimentacao WHERE id_vaga = ? AND data_saida IS NULL";
     $stmt = $pdo->prepare($sql);

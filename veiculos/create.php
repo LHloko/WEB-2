@@ -1,3 +1,7 @@
+<?php
+$vaga = $_GET['vaga'] ?? null;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +22,18 @@
         <label>Modelo:</label>
         <input type="text" name="modelo" required>
 
+        <!-- Se existir uma vaga ele registra o veiculo e estaciona -->
+        <?php if($vaga): ?>
+            <input type="hidden" name="vaga" value="<?= $vaga ?>">
+        <?php endif ?>
+
         <button class="btn btn-success">Cadastrar</button>
 
     </form>
 
-    <?php if(!isset($_GET['vaga'])):?>
+
+    <!-- Se existir uma vaga o botao de voltar volta para o index da raiz -->
+    <?php if(!$vaga):?>
         <a href="index.php" class="btn-link">Voltar</a>
     <?php else: ?>
         <a href="../index.php" class="btn-link">Voltar</a>

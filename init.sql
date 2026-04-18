@@ -1,6 +1,14 @@
+-- BANCO DE DADOS DO ESTACIONAMENTO
 CREATE DATABASE IF NOT EXISTS estacionamento
 CHARACTER SET utf8mb4
 COLLATE utf8mb4_unicode_ci;
+
+-- USUARIO PARA CONEXAO 
+CREATE USER IF NOT EXISTS 'estac_user'@'localhost' IDENTIFIED BY 'estac123';
+
+GRANT ALL PRIVILEGES ON estacionamento.* TO 'estac_user'@'localhost';
+
+FLUSH PRIVILEGES;
 
 USE estacionamento;
 
